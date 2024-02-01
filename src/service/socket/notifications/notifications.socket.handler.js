@@ -4,6 +4,7 @@ let onlineUsers = [];
 const verifyToken = async (token) => {
   const SECRET = process.env.SECRET;// Replace with your actual secret key
 
+
   return new Promise((resolve, reject) => {
     jwt.verify(token, SECRET, async (err, decoded) => {
       if (err) {
@@ -29,6 +30,7 @@ const verifyToken = async (token) => {
 
 const addNewUser =async  (namespace,socketId,token) => {
   try {
+  
     const decodedToken = await verifyToken(token);
      // Extract user information from the decoded token
      const {
@@ -99,14 +101,20 @@ const handleNewUser = (socket, namespace, username) => {
 };
 
 const notificationsSocketHandler = ({ socket, namespace}) => {
-  const token = socket.handshake.headers.authorization ||  socket.handshake.query.token;
+  //const token = socket.handshake.headers.authorization ||  socket.handshake.query.token;
+  // const token = socket.handshake.headers.authorization;
+
+
   socket.on("welcome", (message) => {
     console.log("Received :"+message);
   });
-
-  socket.on("newUser", () => {
-   
-   addNewUser(namespace ,socket.id,token);
+// if(token){
+//   console.log(token)
+//   addNewUser(namespace ,socket.id,token);
+// }
+  socket.on("newUser", (data) => {
+    console.log(data)
+   addNewUser(namespace ,socket.id,data.authtoken);
     //socket.emit("onlineUsers", onlineUsers)
   });
 
