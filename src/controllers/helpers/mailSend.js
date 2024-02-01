@@ -4,8 +4,7 @@ const path = require('path');
 const config = require('../../config/db.config.js'); // Import your configuration from a file
 const logger = require('./logger'); // Assuming you have a logger module
 const utils = require('../helpers/utils');
-const db = require('../../models');
-const audit_logs = db.audit_logs;
+
 
 let attachments ="";
 

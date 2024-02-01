@@ -124,4 +124,4 @@ let nodeServer = server.listen(process.env.PORT, function (err,data) {
 
 
 // Export the io instance
- module.exports = { };
+//  module.exports = { };

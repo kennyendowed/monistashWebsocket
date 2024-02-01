@@ -1,7 +1,7 @@
-const db = require("../models");
-const Role = db.role;
-const appSettings = db.Basic_settings;
-const Conditions = db.Conditions;
+// const db = require("../models");
+// const Role = db.role;
+// const appSettings = db.Basic_settings;
+// const Conditions = db.Conditions;
 
 // **********NOTE***********
 // initial() function helps us to create 3 rows in database.
