@@ -244,6 +244,7 @@ const notificationsSocketHandler = ({ socket, namespace}) => {
   socket.on("userDisconnected", () => {
     // Handle the user disconnection event as needed
     console.log("User disconnected");
+    removeUsersocketID(namespace, socket.id);
   });
   // Example: Handling disconnection
   socket.on("disconnect", () => {
