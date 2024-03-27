@@ -237,7 +237,7 @@ const notificationsSocketHandler = ({ socket, namespace}) => {
    // console.log(socket.id)
     // Handle the received notification as needed
     namespace.to(socket.id).emit('notification', { message: data });
-   // namespace.emit('notification', data);
+    namespace.emit('notification', data);
   });
 
   // Add more event handlers as needed for your application
